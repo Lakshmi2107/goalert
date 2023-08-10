@@ -39,6 +39,8 @@ export interface Query {
   generateSlackAppManifest: string
   linkAccountInfo?: null | LinkAccountInfo
   swoStatus: SWOStatus
+  superservices: SuperServiceConnection
+  superservice?: null | SuperserviceListAll
 }
 
 export interface SWOStatus {
@@ -377,6 +379,8 @@ export interface Mutation {
   updateAlertsByService: boolean
   setConfig: boolean
   setSystemLimits: boolean
+  updateSuperService: boolean
+  createSuperService?: null | Superservice
 }
 
 export interface UpdateAlertsByServiceInput {
@@ -462,6 +466,28 @@ export interface ScheduleTargetInput {
   rules: ScheduleRuleInput[]
 }
 
+export interface CreateSuperServiceInput {
+  name: string
+  description: string
+  adgroup: string
+  services: string[]
+}
+
+export interface UpdateSuperServiceInput {
+  id: string
+  name?: null | string
+  description?: null | string
+  adgroup?: null | string
+  services?: null | string[]
+}
+
+export interface SuperServiceSearchOptions {
+  first?: null | number
+  after?: null | string
+  search?: null | string
+  omit?: null | string[]
+}
+
 export interface ScheduleRuleInput {
   id?: null | string
   start?: null | ClockTime
@@ -524,6 +550,24 @@ export interface EscalationPolicyStep {
   delayMinutes: number
   targets: Target[]
   escalationPolicy?: null | EscalationPolicy
+}
+
+export interface SuperserviceListAll {
+  id: string
+  name: string
+  description: string
+  permission?: null | string
+  adgroup: string
+  services: Service[]
+}
+
+export interface Superservice {
+  id: string
+  name: string
+  description: string
+  permission?: null | string
+  adgroup: string
+  services: string[]
 }
 
 export interface UpdateScheduleInput {
@@ -943,9 +987,15 @@ export type TargetType =
   | 'heartbeatMonitor'
   | 'calendarSubscription'
   | 'userSession'
+  | 'superService'
 
 export interface ServiceConnection {
   nodes: Service[]
+  pageInfo: PageInfo
+}
+
+export interface SuperServiceConnection {
+  nodes: Superservice[]
   pageInfo: PageInfo
 }
 

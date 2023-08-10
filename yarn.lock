@@ -1022,6 +1022,13 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@lowes/pharos@^4.0.6":
+  version "4.1.0"
+  resolved "https://artifactory.lowes.com/artifactory/api/npm/ptp-npm-virtual/@lowes/pharos/-/@lowes/pharos-4.1.0.tgz#91f6df00b50c640364c886ee171f4b2dfd71e2e2"
+  integrity sha512-gvxgCzXK7Dq0MmJ4wC2hzaSl4oRhFti6dVMQv27yvprya5XvOxMJ/O4uUkR18Jb0t6HQD9i9YN09qIxxMhipKA==
+  dependencies:
+    web-vitals "^2.1.4"
+
 "@material/material-color-utilities@0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@material/material-color-utilities/-/material-color-utilities-0.2.0.tgz#adc64dfea1eb124ff0654fa833a180d7080cbbaa"
@@ -8352,6 +8359,11 @@ warning@^4.0.3:
   integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
   dependencies:
     loose-envify "^1.0.0"
+
+web-vitals@^2.1.4:
+  version "2.1.4"
+  resolved "https://artifactory.lowes.com/artifactory/api/npm/ptp-npm-virtual/web-vitals/-/web-vitals-2.1.4.tgz#76563175a475a5e835264d373704f9dde718290c"
+  integrity sha512-sVWcwhU5mX6crfI5Vd2dC4qchyTqxV8URinzt25XqVh+bHEPGH4C3NPrNionCP7Obx59wrYEbNlw4Z8sjALzZg==
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"

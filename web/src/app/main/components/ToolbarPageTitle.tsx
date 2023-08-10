@@ -93,7 +93,7 @@ const renderCrumb = (
 const matchPath = makeMatcher()
 
 function useName(type = '', id = ''): string {
-  const queryName = camelCase(typeMap[type] ?? 'skipping')
+  const queryName = typeMap[type]
   const isUUID =
     /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/.test(id)
   // query for details page name if on a subpage
@@ -121,9 +121,11 @@ function useBreadcrumbs(): [string, JSX.Element[] | JSX.Element] {
   let title = ''
   const crumbs: Array<JSX.Element> = []
   const parts = path.split('/')
+  console.log("parts",parts)
   const name = useName(parts[1], parts[2])
   parts.slice(1).forEach((part, i) => {
     title = i === 1 ? name : toTitleCase(part)
+    console.log("title",title)
     if (parts[1] === 'admin') {
       // admin doesn't have IDs to lookup
       // and instead just has fixed sub-page names

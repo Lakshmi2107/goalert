@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { Grid, Card, CardContent, CardHeader } from '@mui/material'
 import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '@mui/material/styles'
+import { Theme } from '@mui/styles'
 import AlertCountControls from './AlertCountControls'
 import { useURLParams } from '../../actions'
 import { DateTime, Duration, Interval, DateTimeUnit } from 'luxon'

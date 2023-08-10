@@ -37,6 +37,7 @@ type Query {
 
   # Returns a paginated list of services.
   services(input: ServiceSearchOptions): ServiceConnection!
+  listservices(id: ID!): [Service!]!
 
   # Returns a single rotation with the given ID.
   rotation(id: ID!): Rotation
@@ -120,6 +121,12 @@ type Query {
   linkAccountInfo(token: ID!): LinkAccountInfo
 
   swoStatus: SWOStatus!
+
+    #Returns a paginated list of super services. - TLMT-2546
+  superservices(input: SuperServiceSearchOptions): SuperServiceConnection!
+
+  #Returns a single super service - TLMT-2546
+  superservice(id: ID!): SuperserviceListAll
 }
 
 type SWOStatus {
@@ -521,6 +528,11 @@ type Mutation {
 
   setConfig(input: [ConfigValueInput!]): Boolean!
   setSystemLimits(input: [SystemLimitInput!]!): Boolean!
+
+  updateSuperService(input: UpdateSuperServiceInput!): Boolean!
+  createSuperService(input: CreateSuperServiceInput!): Superservice
+
+
 }
 
 input UpdateAlertsByServiceInput {
@@ -611,6 +623,32 @@ input ScheduleTargetInput {
   rules: [ScheduleRuleInput!]!
 }
 
+input CreateSuperServiceInput {
+  name: String!
+  description: String!
+
+  #TLMT - 2960 - RBAC
+  adgroup: String!
+
+  services: [ID!]!
+}
+input UpdateSuperServiceInput {
+  id: ID!
+  name: String
+  description: String
+
+  #TLMT - 2960 - RBAC
+  adgroup: String
+
+  services: [ID!]
+}
+input SuperServiceSearchOptions {
+  first: Int = 15
+  after: String = ""
+  search: String = ""
+  omit: [ID!]
+}
+
 input ScheduleRuleInput {
   id: ID
   start: ClockTime
@@ -684,6 +722,31 @@ type EscalationPolicyStep {
   delayMinutes: Int!
   targets: [Target!]!
   escalationPolicy: EscalationPolicy
+}
+
+type SuperserviceListAll{
+  id: ID!
+  name: String!
+  description: String!
+
+  #TLMT - 2960 - RBAC
+  permission: String
+  adgroup: String!
+
+  services: [Service!]!
+  
+}
+
+type Superservice {
+  id: ID!
+  name: String!
+  description: String!
+
+  #TLMT - 2960 - RBAC
+  permission: String
+  adgroup: String!
+
+  services: [ID!]!
 }
 
 input UpdateScheduleInput {
@@ -1184,10 +1247,15 @@ enum TargetType {
   heartbeatMonitor
   calendarSubscription
   userSession
+  superService
 }
 
 type ServiceConnection {
   nodes: [Service!]!
+  pageInfo: PageInfo!
+}
+type SuperServiceConnection {
+  nodes: [Superservice!]!
   pageInfo: PageInfo!
 }
 

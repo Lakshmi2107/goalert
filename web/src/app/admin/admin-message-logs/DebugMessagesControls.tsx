@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Grid, IconButton } from '@mui/material'
 import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '@mui/material/styles'
+import { Theme } from '@mui/styles'
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
 import RestartAltIcon from '@mui/icons-material/RestartAlt'

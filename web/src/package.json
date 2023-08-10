@@ -33,6 +33,7 @@
     "@mui/lab": "5.0.0-alpha.59",
     "@mui/material": "5.10.2",
     "@mui/styles": "5.11.0",
+    "@lowes/pharos": "^4.0.6",
     "@mui/x-data-grid": "5.17.1",
     "@urql/exchange-retry": "1.0.0",
     "bowser": "2.11.0",

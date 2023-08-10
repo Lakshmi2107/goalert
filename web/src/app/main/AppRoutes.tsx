@@ -39,6 +39,10 @@ import UserSessionList from '../users/UserSessionList'
 import { useSessionInfo } from '../util/RequireConfig'
 import WizardRouter from '../wizard/WizardRouter'
 import LocalDev from '../localdev/LocalDev'
+import MessagingReports from '../templates/mim/components/MessagingReports'
+import SuperGroupList from '../templates/supergroup/components/SuperGroupList'
+import SuperGroupDetails from '../templates/supergroup/components/SuperGroupDetails'
+import SuperGroupAlerts from '../templates/supergroup/components/SuperGroupAlerts'
 
 // ParamRoute will pass route parameters as props to the route's child.
 function ParamRoute(props: RouteProps): JSX.Element {
@@ -100,12 +104,21 @@ export const routes: Record<string, JSXElementConstructor<any>> = {
   '/services/:serviceID/labels': ServiceLabelList,
   '/services/:serviceID/alert-metrics': AlertMetrics,
 
+  '/superservices': SuperGroupList,
+  '/superservices/:groupID': SuperGroupDetails,
+  '/superservices/:groupID/alerts': SuperGroupAlerts,
+  '/superservices/:groupID/alerts/:alertID': AlertDetailPage,
+  '/superservices/:groupID/heartbeat-monitors': HeartbeatMonitorList,
+  '/superservices/:sgroupID/integration-keys': IntegrationKeyList,
+
   '/users': UserList,
   '/users/:userID': UserDetails,
   '/users/:userID/on-call-assignments': UserOnCallAssignmentList,
   '/users/:userID/schedule-calendar-subscriptions':
     UserCalendarSubscriptionList,
   '/users/:userID/sessions': UserSessionList,
+  '/messaging': MessagingReports,
+  '/reports': MessagingReports,
 
   '/profile': Spinner, // should redirect once user ID loads
   '/profile/*': Spinner, // should redirect once user ID loads

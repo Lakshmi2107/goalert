@@ -29,6 +29,7 @@ import (
 	"github.com/target/goalert/schedule/rotation"
 	"github.com/target/goalert/schedule/rule"
 	"github.com/target/goalert/service"
+	"github.com/target/goalert/superservice"
 	"github.com/target/goalert/timezone"
 	"github.com/target/goalert/user"
 	"github.com/target/goalert/user/contactmethod"
@@ -161,6 +162,9 @@ func (app *App) initStores(ctx context.Context) error {
 	}
 	if err != nil {
 		return errors.Wrap(err, "init service store")
+	}
+	if app.SuperserviceStore == nil {
+		app.SuperserviceStore, err = superservice.NewDB(ctx, app.db)
 	}
 
 	if app.AuthBasicStore == nil {

@@ -175,6 +175,13 @@ type CreateServiceInput struct {
 	NewHeartbeatMonitors []CreateHeartbeatMonitorInput `json:"newHeartbeatMonitors"`
 }
 
+type CreateSuperServiceInput struct {
+	Name        string   `json:"name"`
+	Description string   `json:"description"`
+	Adgroup     string   `json:"adgroup"`
+	Services    []string `json:"services"`
+}
+
 type CreateUserCalendarSubscriptionInput struct {
 	Name            string `json:"name"`
 	ReminderMinutes []int  `json:"reminderMinutes"`
@@ -490,6 +497,36 @@ type StringConnection struct {
 	PageInfo *PageInfo `json:"pageInfo"`
 }
 
+type SuperServiceConnection struct {
+	Nodes    []Superservice `json:"nodes"`
+	PageInfo *PageInfo      `json:"pageInfo"`
+}
+
+type SuperServiceSearchOptions struct {
+	First  *int     `json:"first"`
+	After  *string  `json:"after"`
+	Search *string  `json:"search"`
+	Omit   []string `json:"omit"`
+}
+
+type Superservice struct {
+	ID          string   `json:"id"`
+	Name        string   `json:"name"`
+	Description string   `json:"description"`
+	Permission  *string  `json:"permission"`
+	Adgroup     string   `json:"adgroup"`
+	Services    []string `json:"services"`
+}
+
+type SuperserviceListAll struct {
+	ID          string            `json:"id"`
+	Name        string            `json:"name"`
+	Description string            `json:"description"`
+	Permission  *string           `json:"permission"`
+	Adgroup     string            `json:"adgroup"`
+	Services    []service.Service `json:"services"`
+}
+
 type SystemLimit struct {
 	ID          limit.ID `json:"id"`
 	Description string   `json:"description"`
@@ -572,6 +609,14 @@ type UpdateServiceInput struct {
 	Description          *string    `json:"description"`
 	EscalationPolicyID   *string    `json:"escalationPolicyID"`
 	MaintenanceExpiresAt *time.Time `json:"maintenanceExpiresAt"`
+}
+
+type UpdateSuperServiceInput struct {
+	ID          string   `json:"id"`
+	Name        *string  `json:"name"`
+	Description *string  `json:"description"`
+	Adgroup     *string  `json:"adgroup"`
+	Services    []string `json:"services"`
 }
 
 type UpdateUserCalendarSubscriptionInput struct {

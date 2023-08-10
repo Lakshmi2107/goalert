@@ -198,6 +198,7 @@ func (a *Mutation) tryDeleteAll(ctx context.Context, input []assignment.RawTarge
 		assignment.TargetTypeNotificationRule,
 		assignment.TargetTypeContactMethod,
 		assignment.TargetTypeUserSession,
+		assignment.TargetTypeSuperService,
 	}
 
 	for _, typ := range order {
@@ -230,6 +231,9 @@ func (a *Mutation) tryDeleteAll(ctx context.Context, input []assignment.RawTarge
 			err = errors.Wrap(a.HeartbeatStore.DeleteTx(ctx, tx, ids...), "delete heartbeat monitors")
 		case assignment.TargetTypeUserSession:
 			err = errors.Wrap(a.AuthHandler.EndUserSessionTx(ctx, tx, ids...), "end user sessions")
+		case assignment.TargetTypeSuperService:
+			err = errors.Wrap(a.SuperserviceStore.DeleteTx(ctx, tx, ids), "delete super service")
+
 		default:
 			return validation.NewFieldError("type", "unsupported type "+typ.String())
 		}

@@ -32,6 +32,7 @@ const (
 	TargetTypeContactMethod
 	TargetTypeHeartbeatMonitor
 	TargetTypeUserSession
+	TargetTypeSuperService
 )
 
 var _ graphql.Marshaler = TargetType(0)
@@ -74,6 +75,8 @@ func (tt *TargetType) UnmarshalText(data []byte) error {
 		*tt = TargetTypeHeartbeatMonitor
 	case "userSession":
 		*tt = TargetTypeUserSession
+	case "superService":
+		*tt = TargetTypeSuperService
 	default:
 		return validation.NewFieldError("TargetType", "unknown target type "+str)
 	}
@@ -124,6 +127,8 @@ func (tt TargetType) MarshalText() ([]byte, error) {
 		return []byte("heartbeatMonitor"), nil
 	case TargetTypeUserSession:
 		return []byte("userSession"), nil
+	case TargetTypeSuperService:
+		return []byte("superService"), nil
 	}
 
 	return nil, validation.NewFieldError("TargetType", "unknown target type "+tt.String())

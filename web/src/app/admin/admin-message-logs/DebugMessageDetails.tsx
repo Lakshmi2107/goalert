@@ -11,7 +11,7 @@ import {
   Typography,
 } from '@mui/material'
 import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '@mui/material/styles'
+import { Theme } from '@mui/styles'
 import { OpenInNew } from '@mui/icons-material'
 import { DateTime } from 'luxon'
 import AppLink from '../../util/AppLink'

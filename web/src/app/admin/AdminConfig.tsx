@@ -6,7 +6,7 @@ import Divider from '@mui/material/Divider'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '@mui/material/styles'
+import { Theme } from '@mui/styles'
 import _, { startCase, isEmpty, uniq, chain } from 'lodash'
 import AdminSection from './AdminSection'
 import AdminDialog from './AdminDialog'
@@ -166,7 +166,7 @@ export default function AdminConfig(): JSX.Element {
       )}
 
       <Grid item xs={12}>
-        {groups.map((groupID: string, index: number) => (
+        {groups.map((groupID: string, index: number) => ( 
           <Accordion
             key={groupID}
             expanded={section === groupID}
@@ -198,7 +198,7 @@ export default function AdminConfig(): JSX.Element {
                   }`}
                 />
               )) ||
-                null}
+               null}
             </AccordionSummary>
             <Divider />
             <AccordionDetails

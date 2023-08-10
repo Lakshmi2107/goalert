@@ -39,6 +39,7 @@ import (
 	"github.com/target/goalert/schedule/rotation"
 	"github.com/target/goalert/schedule/rule"
 	"github.com/target/goalert/service"
+	"github.com/target/goalert/superservice"
 	"github.com/target/goalert/swo"
 	"github.com/target/goalert/timezone"
 	"github.com/target/goalert/user"
@@ -78,7 +79,8 @@ type App struct {
 	HeartbeatStore    *heartbeat.Store
 	NoticeStore       *notice.Store
 
-	AuthLinkStore *authlink.Store
+	AuthLinkStore     *authlink.Store
+	SuperserviceStore superservice.Store
 
 	NotificationManager *notification.Manager
 

@@ -1,4 +1,4 @@
-import { Theme } from '@mui/material/styles'
+import { Theme } from '@mui/styles'
 import { StyleRules } from '@mui/styles'
 
 export const styles = (theme: Theme): StyleRules => ({

@@ -39,6 +39,7 @@ func (app *App) initGraphQL(ctx context.Context) error {
 		AuthHandler:         app.AuthHandler,
 		FormatDestFunc:      app.notificationManager.FormatDestValue,
 		NotificationManager: app.notificationManager,
+		SuperserviceStore:   app.SuperserviceStore,
 		AuthLinkStore:       app.AuthLinkStore,
 		SWO:                 app.cfg.SWO,
 	}

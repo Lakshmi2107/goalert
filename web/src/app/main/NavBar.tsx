@@ -14,7 +14,7 @@ import {
   DeveloperBoard,
 } from '@mui/icons-material'
 import { WizardHat as WizardIcon } from 'mdi-material-ui'
-import { Theme, useTheme } from '@mui/material/styles'
+import { Theme, useTheme } from '@mui/styles'
 import RequireConfig from '../util/RequireConfig'
 import logo from '../public/logos/black/goalert-alt-logo.png'
 import darkModeLogo from '../public/logos/white/goalert-alt-logo-white.png'
@@ -72,8 +72,10 @@ export default function NavBar(): JSX.Element {
             icon={<Layers />}
           />
           <NavBarLink to='/services' title='Services' icon={<VpnKey />} />
+          <NavBarLink to='/superservices' title='Super Groups' icon={<VpnKey />} />
           <NavBarLink to='/users' title='Users' icon={<Group />} />
-
+          <NavBarLink to='/messaging' title='Messaging' icon={<Group />} />
+          <NavBarLink to='/reports' title='Reports' icon={<Group />} />
           <RequireConfig isAdmin>
             <NavBarLink to='/admin' title='Admin' icon={<Build />}>
               <NavBarSubLink to='/admin/config' title='Config' />

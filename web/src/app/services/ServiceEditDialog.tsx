@@ -82,7 +82,6 @@ export default function ServiceEditDialog(props: {
       }}
       form={
         <ServiceForm
-          epRequired
           errors={fieldErrs}
           disabled={Boolean(
             saveStatus.fetching || (!data && dataFetching) || dataError,

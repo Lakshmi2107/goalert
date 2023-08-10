@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import AddIcon from '@mui/icons-material/Add'
 import { Fab, Tooltip, FabProps } from '@mui/material'
 import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '@mui/material/styles'
+import { Theme } from '@mui/styles'
 
 const useStyles = makeStyles((theme: Theme) => ({
   fab: {

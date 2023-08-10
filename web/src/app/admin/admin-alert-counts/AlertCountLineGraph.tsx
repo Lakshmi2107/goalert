@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Grid, Paper, Typography } from '@mui/material'
 import makeStyles from '@mui/styles/makeStyles/makeStyles'
-import { Theme, useTheme } from '@mui/material/styles'
+import { Theme, useTheme } from '@mui/styles'
 import { DateTime, DateTimeUnit } from 'luxon'
 import {
   blueGrey,

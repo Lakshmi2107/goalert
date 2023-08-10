@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Paper, Typography } from '@mui/material'
 import makeStyles from '@mui/styles/makeStyles/makeStyles'
-import { Theme, useTheme } from '@mui/material/styles'
+import { Theme, useTheme } from '@mui/styles'
 import AutoSizer from 'react-virtualized-auto-sizer'
 import Spinner from '../../loading/components/Spinner'
 import {

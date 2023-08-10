@@ -12,7 +12,7 @@ import { UserAvatar } from '../util/avatars'
 import { styles as globalStyles } from '../styles/materialStyles'
 import Spinner from '../loading/components/Spinner'
 import { GenericError, ObjectNotFound } from '../error-pages'
-import { Theme } from '@mui/material/styles'
+import { Theme } from '@mui/styles'
 import { User, Rotation } from '../../schema'
 import { Time } from '../util/Time'
 
